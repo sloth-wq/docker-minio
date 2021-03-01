@@ -16,7 +16,7 @@ S3と同じ環境ををローカル環境で無料で使用可能。
 # Requirement
 
 * docker
-* docker-compose
+* docker-compose  
 installなどは[docker](https://hub.docker.com/)をご覧ください。
  
 # Installation
