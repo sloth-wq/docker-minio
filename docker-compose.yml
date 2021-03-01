@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  minio:
+    container_name: aws-s3
+    image: minio/minio:latest
+    ports:
+      - 9000:9000
+    volumes:
+      - ./s3/data:/export
+      - ./s3/config:/root/.minio
+    environment:
+      MINIO_ACCESS_KEY: minio_access_key
+      MINIO_SECRET_KEY: minio_secret_key
+    command: server /export 
+  createbuckets:
+    image: minio/mc
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      until (/usr/bin/mc config host add myminio http://minio:9000 minio_access_key minio_secret_key) do echo '...waiting...' && sleep 1; done;
+      /usr/bin/mc mb myminio/bucket;
+      /usr/bin/mc policy download myminio/bucket;
+      exit 0;
+      "
