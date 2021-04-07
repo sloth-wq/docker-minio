@@ -38,5 +38,5 @@ ACCESS_KEYとSECRET_KEYを入力しログインして使用する。
  
 # Note
  
-[minio](https://min.io/)
-
+- [minio](https://min.io/)
+- [start guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html)
