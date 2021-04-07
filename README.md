@@ -38,4 +38,5 @@ ACCESS_KEYとSECRET_KEYを入力しログインして使用する。
  
 # Note
  
-特になし。
+[minio](https://min.io/)
+
